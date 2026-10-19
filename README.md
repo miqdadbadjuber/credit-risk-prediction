@@ -231,25 +231,6 @@ print(f"Decision: {underwriting_decision} (Threshold: {threshold})")
 
 ---
 
-## Repository Structure
+## License
 
-```text
-credit-risk-prediction/
-├── assets/
-│   ├── banner.png
-│   ├── cost-sensitive-threshold.png
-│   ├── performance-tradeoffs.png
-│   ├── pipeline-architecture.png
-│   ├── probability-calibration.png
-│   ├── risk-segmentation-matrix.png
-│   ├── shap-local-waterfall.png
-│   └── shap-summary-beeswarm.png
-├── dataset/
-│   └── credit_risk_dataset.csv
-├── models/
-│   └── calibrated_credit_risk_pipeline.joblib
-├── credit_risk_prediction.ipynb
-├── requirements.txt
-├── LICENSE
-└── README.md
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
