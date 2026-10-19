@@ -37,16 +37,11 @@ This project delivers an end-to-end credit risk pipeline that integrates gradien
 
 ## Architecture & Methodology
 
-```mermaid
-flowchart LR
-    A["Raw Credit Bureau & Applicant Cohort"] --> B["ColumnTransformer Preprocessing"]
-    B --> C["LightGBM Classification"]
-    C --> D["5-Fold Isotonic Probability Calibration"]
-    D --> E["Cost-Sensitive Threshold Optimization"]
-    D --> F["SHAP Regulatory Governance"]
-    E --> G["Production Inference Pipeline"]
-    F --> G
-```
+<div align="center">
+
+![Pipeline Architecture](assets/pipeline-architecture.png)
+
+</div>
 
 The pipeline executes through sequential modules:
 1. **Schema Validation:** Ingests demographic, financial, and credit history attributes across 25,000 application records.
@@ -244,6 +239,7 @@ credit-risk-prediction/
 │   ├── banner.png
 │   ├── cost-sensitive-threshold.png
 │   ├── performance-tradeoffs.png
+│   ├── pipeline-architecture.png
 │   ├── probability-calibration.png
 │   ├── risk-segmentation-matrix.png
 │   ├── shap-local-waterfall.png
