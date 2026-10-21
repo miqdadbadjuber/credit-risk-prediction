@@ -192,45 +192,6 @@ In the audited applicant profile above:
 
 ---
 
-## Production Pipeline & Inference Interface
-
-The complete pipeline (feature transformers and calibrated estimator) is serialized as a standalone artifact: `models/calibrated_credit_risk_pipeline.joblib`.
-
-```python
-import joblib
-import pandas as pd
-
-# Load serialized underwriting pipeline
-pipeline = joblib.load("models/calibrated_credit_risk_pipeline.joblib")
-
-# Score a new applicant payload
-applicant = {
-    'person_age': 29,
-    'person_income': 54000,
-    'person_home_ownership': 'RENT',
-    'person_emp_length': 4.0,
-    'loan_intent': 'PERSONAL',
-    'loan_grade': 'D',
-    'loan_amnt': 16000,
-    'loan_int_rate': 14.2,
-    'loan_percent_income': 0.30,
-    'cb_person_default_on_file': 'N',
-    'cb_person_cred_hist_length': 5
-}
-
-applicant_df = pd.DataFrame([applicant])
-predicted_pd = pipeline.predict_proba(applicant_df)[0, 1]
-
-# Apply optimal cost-sensitive threshold
-threshold = 0.07
-underwriting_decision = "DECLINE" if predicted_pd >= threshold else "APPROVE"
-
-print(f"Calibrated Default Probability: {predicted_pd:.2%}")
-print(f"Decision: {underwriting_decision} (Threshold: {threshold})")
-```
-
----
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT: [LICENSE](LICENSE)
